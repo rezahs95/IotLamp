@@ -2,14 +2,14 @@ package ir.altontelecom.iotlamp.webservice.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SetPowerResponse {
+public class SetResponse {
     @SerializedName("Status")
     private Status status;
 
-    public SetPowerResponse() {
+    public SetResponse() {
     }
 
-    public SetPowerResponse(Status status) {
+    public SetResponse(Status status) {
         this.status = status;
     }
 

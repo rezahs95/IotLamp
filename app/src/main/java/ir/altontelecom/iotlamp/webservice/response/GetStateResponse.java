@@ -1,27 +1,19 @@
-package ir.altontelecom.iotlamp.webservice.resquest;
+package ir.altontelecom.iotlamp.webservice.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SetColorRequest {
-    @SerializedName("Identity")
-    private Identity identity;
+public class GetStateResponse {
     @SerializedName("Parameters")
     private Parameters parameters;
+    @SerializedName("Status")
+    private Status status;
 
-    public SetColorRequest() {
+    public GetStateResponse() {
     }
 
-    public SetColorRequest(Identity identity, Parameters parameters) {
-        this.identity = identity;
+    public GetStateResponse(Parameters parameters, Status status) {
         this.parameters = parameters;
-    }
-
-    public Identity getIdentity() {
-        return identity;
-    }
-
-    public void setIdentity(Identity identity) {
-        this.identity = identity;
+        this.status = status;
     }
 
     public Parameters getParameters() {
@@ -32,24 +24,12 @@ public class SetColorRequest {
         this.parameters = parameters;
     }
 
-    public static class Identity {
-        @SerializedName("SessionKey")
-        private String sessionKey;
+    public Status getStatus() {
+        return status;
+    }
 
-        public Identity() {
-        }
-
-        public Identity(String sessionKey) {
-            this.sessionKey = sessionKey;
-        }
-
-        public String getSessionKey() {
-            return sessionKey;
-        }
-
-        public void setSessionKey(String sessionKey) {
-            this.sessionKey = sessionKey;
-        }
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public static class Parameters {
@@ -61,19 +41,19 @@ public class SetColorRequest {
         private Integer blue;
         @SerializedName("FadeTime")
         private Integer fadeTime;
-        @SerializedName("Delay")
-        private Integer delay;
+        @SerializedName("Power")
+        private Boolean power;
 
         public Parameters() {
         }
 
-        public Parameters(Integer red, Integer green, Integer blue, Integer fadeTime, Integer
-                delay) {
+        public Parameters(Integer red, Integer green, Integer blue, Integer fadeTime, Boolean
+                power) {
             this.red = red;
             this.green = green;
             this.blue = blue;
             this.fadeTime = fadeTime;
-            this.delay = delay;
+            this.power = power;
         }
 
         public Integer getRed() {
@@ -108,12 +88,43 @@ public class SetColorRequest {
             this.fadeTime = fadeTime;
         }
 
-        public Integer getDelay() {
-            return delay;
+        public Boolean getPower() {
+            return power;
         }
 
-        public void setDelay(Integer delay) {
-            this.delay = delay;
+        public void setPower(Boolean power) {
+            this.power = power;
+        }
+    }
+
+    public static class Status {
+        @SerializedName("Code")
+        private String code;
+        @SerializedName("Description")
+        private String description;
+
+        public Status() {
+        }
+
+        public Status(String code, String description) {
+            this.code = code;
+            this.description = description;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
         }
     }
 }

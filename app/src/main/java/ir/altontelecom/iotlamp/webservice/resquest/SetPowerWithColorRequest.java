@@ -2,16 +2,16 @@ package ir.altontelecom.iotlamp.webservice.resquest;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SetColorRequest {
+public class SetPowerWithColorRequest {
     @SerializedName("Identity")
     private Identity identity;
     @SerializedName("Parameters")
     private Parameters parameters;
 
-    public SetColorRequest() {
+    public SetPowerWithColorRequest() {
     }
 
-    public SetColorRequest(Identity identity, Parameters parameters) {
+    public SetPowerWithColorRequest(Identity identity, Parameters parameters) {
         this.identity = identity;
         this.parameters = parameters;
     }
@@ -63,17 +63,20 @@ public class SetColorRequest {
         private Integer fadeTime;
         @SerializedName("Delay")
         private Integer delay;
+        @SerializedName("Power")
+        private Boolean power;
 
         public Parameters() {
         }
 
         public Parameters(Integer red, Integer green, Integer blue, Integer fadeTime, Integer
-                delay) {
+                delay, Boolean power) {
             this.red = red;
             this.green = green;
             this.blue = blue;
             this.fadeTime = fadeTime;
             this.delay = delay;
+            this.power = power;
         }
 
         public Integer getRed() {
@@ -114,6 +117,14 @@ public class SetColorRequest {
 
         public void setDelay(Integer delay) {
             this.delay = delay;
+        }
+
+        public Boolean getPower() {
+            return power;
+        }
+
+        public void setPower(Boolean power) {
+            this.power = power;
         }
     }
 }
