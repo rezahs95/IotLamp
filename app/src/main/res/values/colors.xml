@@ -6,4 +6,8 @@
     <color name="red">#c62828</color>
     <color name="green">#2e7d32</color>
     <color name="blue">#1565c0</color>
+    <color name="button_pressed">#ff8a00</color>
+    <color name="button_focused">#ff8a00</color>
+    <color name="button_default">#1c76bb</color>
+    <color name="white">#ffffff</color>
 </resources>
